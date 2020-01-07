@@ -62,3 +62,18 @@ describe('Paint', function() {
   });
 
 });
+
+describe('Decorator', function() {
+
+  let decorator;
+
+  beforeEach(function() {
+    decorator = new Decorator("Muciaccia");
+  });
+
+  it('should start with an empty stock of paint', function() {
+    const actual = decorator.stock.length;
+    assert.strictEqual(actual, 0)
+  });
+
+})
