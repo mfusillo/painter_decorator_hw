@@ -55,4 +55,10 @@ describe('Paint', function() {
     assert.strictEqual(actual, true);
   });
 
+  it('should be able to reduce quantity of litres', function(){
+    paint1.reduceQuantity();
+    const actual = paint1.quantityOfLitres;
+    assert.strictEqual(actual, 29);
+  });
+
 });
