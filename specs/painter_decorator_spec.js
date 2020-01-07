@@ -117,4 +117,13 @@ describe('Decorator', function() {
     assert.strictEqual(actual2, 5);
   });
 
+  it('should remove empty paint can', function() {
+    decorator.addPaintCan(paint1);
+    decorator.addPaintCan(paint2);
+    decorator.addPaintCan(paint3);
+    decorator.removeEmptyCan();
+    const actual = decorator.stock.length;
+    assert.strictEqual(actual, 2);
+  });
+
 });

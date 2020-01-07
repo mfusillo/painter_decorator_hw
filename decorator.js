@@ -39,19 +39,26 @@ Decorator.prototype.paintRoom = function(room) {
         this.stock[i].reduceQuantity();
         room.increasePaintedArea();
         litresToRemove--
-        // console.log("stock:", this.stock[i].quantityOfLitres);
         }
 
     } else {
-      // for(let j = 0; j < this.stock[i].quantityOfLitres; j++) {
       while(this.stock[i].quantityOfLitres > 0){
         this.stock[i].reduceQuantity();
         room.increasePaintedArea();
         litresToRemove--
       };
-      // };
     };
 
+  };
+
+};
+
+Decorator.prototype.removeEmptyCan = function() {
+
+  for(let i = this.stock.length -1; i >= 0; i--) {
+    if(this.stock[i].quantityOfLitres === 0) {
+      this.stock.splice(i, 1);
+    }
   };
 
 };
