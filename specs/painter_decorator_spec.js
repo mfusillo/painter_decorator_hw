@@ -88,4 +88,12 @@ describe('Decorator', function() {
     assert.strictEqual(actual, 1)
   });
 
-})
+  it('should be able to calculate total litres in stock', function() {
+    decorator.addPaintCan(paint1);
+    decorator.addPaintCan(paint2);
+    decorator.addPaintCan(paint3);
+    const actual = decorator.totalLitresInStock();
+    assert.strictEqual(actual, 75);
+  });
+
+});
