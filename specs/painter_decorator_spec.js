@@ -27,4 +27,11 @@ describe('Room', function() {
     assert.strictEqual(actual, 1);
   });
 
+  it('should not paint if fully painted', function() {
+    room1.paintedArea = 70;
+    room1.increasePaintedArea();
+    const actual = room1.paintedArea;
+    assert.strictEqual(actual, 70);
+  });
+
 });

@@ -4,7 +4,9 @@ const Room = function(area) {
 };
 
 Room.prototype.increasePaintedArea = function () {
-  this.paintedArea++
+  if (this.paintedArea < this.area) {
+      this.paintedArea++
+  };
 };
 
 module.exports = Room;
