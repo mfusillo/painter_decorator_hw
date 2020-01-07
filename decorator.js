@@ -23,7 +23,36 @@ Decorator.prototype.totalLitresInStock = function() {
 
 Decorator.prototype.hasEnoughPaint = function(room) {
 
-  return this.totalLitresInStock() >= room.area; 
+  return this.totalLitresInStock() >= room.area;
+
+};
+
+Decorator.prototype.paintRoom = function(room) {
+
+  let litresToRemove = room.area;
+
+
+  for(let i = 0; i < this.stock.length; i++) {
+
+    if(litresToRemove < this.stock[i].quantityOfLitres) {
+      while (litresToRemove != 0) {
+        this.stock[i].reduceQuantity();
+        room.increasePaintedArea();
+        litresToRemove--
+        // console.log("stock:", this.stock[i].quantityOfLitres);
+        }
+
+    } else {
+      // for(let j = 0; j < this.stock[i].quantityOfLitres; j++) {
+      while(this.stock[i].quantityOfLitres > 0){
+        this.stock[i].reduceQuantity();
+        room.increasePaintedArea();
+        litresToRemove--
+      };
+      // };
+    };
+
+  };
 
 };
 

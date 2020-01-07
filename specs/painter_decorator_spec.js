@@ -106,4 +106,15 @@ describe('Decorator', function() {
     assert.strictEqual(actual, true);
   });
 
+  it('should be able to paint room if enough paint', function() {
+    decorator.addPaintCan(paint1);
+    decorator.addPaintCan(paint2);
+    decorator.addPaintCan(paint3);
+    decorator.paintRoom(room);
+    const actual = room.paintedArea;
+    const actual2 = decorator.totalLitresInStock();
+    assert.strictEqual(actual, 70);
+    assert.strictEqual(actual2, 5);
+  });
+
 });

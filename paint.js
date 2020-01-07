@@ -7,7 +7,9 @@ Paint.prototype.isEmpty = function() {
 };
 
 Paint.prototype.reduceQuantity = function() {
+  if(this.quantityOfLitres > 0){
   this.quantityOfLitres--
+  };
 };
 
 module.exports = Paint;
