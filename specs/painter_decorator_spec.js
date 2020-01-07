@@ -69,12 +69,14 @@ describe('Decorator', function() {
   let paint1;
   let paint2;
   let paint3;
+  let room;
 
   beforeEach(function() {
     decorator = new Decorator("Muciaccia");
     paint1 = new Paint(0);
     paint2 = new Paint(15);
     paint3 = new Paint(60);
+    room = new Room(70);
   });
 
   it('should start with an empty stock of paint', function() {
@@ -94,6 +96,14 @@ describe('Decorator', function() {
     decorator.addPaintCan(paint3);
     const actual = decorator.totalLitresInStock();
     assert.strictEqual(actual, 75);
+  });
+
+  it('should be able to calculate if there is enough paint to paint room', function() {
+    decorator.addPaintCan(paint1);
+    decorator.addPaintCan(paint2);
+    decorator.addPaintCan(paint3);
+    const actual = decorator.hasEnoughPaint(room);
+    assert.strictEqual(actual, true);
   });
 
 });
