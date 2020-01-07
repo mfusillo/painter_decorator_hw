@@ -66,14 +66,26 @@ describe('Paint', function() {
 describe('Decorator', function() {
 
   let decorator;
+  let paint1;
+  let paint2;
+  let paint3;
 
   beforeEach(function() {
     decorator = new Decorator("Muciaccia");
+    paint1 = new Paint(0);
+    paint2 = new Paint(15);
+    paint3 = new Paint(60);
   });
 
   it('should start with an empty stock of paint', function() {
     const actual = decorator.stock.length;
     assert.strictEqual(actual, 0)
+  });
+
+  it('should be able to add can of paint to the paint stock', function() {
+    decorator.addPaintCan(paint1);
+    const actual = decorator.stock.length;
+    assert.strictEqual(actual, 1)
   });
 
 })
